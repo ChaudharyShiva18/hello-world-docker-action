@@ -25,4 +25,4 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
       - name: Build and push blockchain
-        run: docker buildx build --tag shivachaudhary10/ethereum-node --file ethereum/EthNode/Dockerfile --platform linux/amd64 --cache-from shivachaudhary10/ethereum-node:cache --cache-to shivachaudhary10/ethereum-node:cache --push --progress tty .
+        run: docker buildx build --tag shivachaudhary10/ethereum-node --file ethereum/Dockerfile --platform linux/amd64 --cache-from shivachaudhary10/ethereum-node:cache --cache-to shivachaudhary10/ethereum-node:cache --push --progress tty .
