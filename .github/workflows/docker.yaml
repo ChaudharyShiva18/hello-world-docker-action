@@ -1,0 +1,21 @@
+name: Docker nodejs image build and push
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: docker login
+      env:
+        DOCKER_USER: ${{ secrets.DOCKER_HUB_USERNAME }}   
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_HUB_PASSWORD }}  
+      run: |
+        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+    - name: docker build nodejs
+      run: |
+        docker build ./nodejs -t shivachaudhary10/nodejs:1.0.0
+    - name: docker push
+      run: |
+        docker push shivachaudhary10/nodejs:1.0.0
