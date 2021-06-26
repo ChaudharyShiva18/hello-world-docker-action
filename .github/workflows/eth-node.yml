@@ -3,7 +3,7 @@ on: [ push, pull_request ]
 
 jobs:
   amd64:
-    name: onomy Docker
+    name: ethereum node
     runs-on: ubuntu-latest
     steps:
       - name: checkout
